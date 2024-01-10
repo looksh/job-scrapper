@@ -38,12 +38,9 @@ def get_pages(url):
 # 페이지의 총 개수가 저장되는 변수
 total_pages = get_pages("https://weworkremotely.com/remote-full-time-jobs?page=1")
 
-
 # 페이지 개수에 따른 요청 url 만들기
 for number in range(total_pages):
-    url = f"https://weworkremotely.com/remote-full-time-jobs?page={number+1}"
+    url = f"https://weworkremotely.com/remote-full-time-jobs?page={number + 1}"
     scrape_page(url)
 
-print(len(all_jobs))
-
-
+# print(len(all_jobs))
