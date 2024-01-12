@@ -2,16 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# TODO keywords들을 가지고 url 요청하도록 만들기
-
-
 class Scraper:
-    # 웹사이트를 스크랩하는 객체가 가져야하는 상태.
-    # url
-    # skill
-    # 스크랩한 배열
-    # 메서드
-    # 상태를 기반으로 스크랩하는 행동
     def __init__(self, url, skill):
         self.url = url
         self.skill = skill
@@ -27,7 +18,7 @@ class Scraper:
         soup = BeautifulSoup(response.content, "html.parser", )
 
         jobs = soup.find("table", id="jobsboard").find_all("td", class_="company")[1:]
-        print(f"Found {self.skill} {len(jobs)}")
+
         for job in jobs:
             title = job.find("h2", itemprop="title").text.strip()
             company = job.find("h3", itemprop="name").text.strip()
